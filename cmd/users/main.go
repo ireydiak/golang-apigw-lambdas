@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	server "golang-apigw-lambdas/pkg"
 	handlers "golang-apigw-lambdas/pkg/handlers/users"
 	"golang-apigw-lambdas/pkg/repository"
@@ -16,7 +15,5 @@ func main() {
 	handler := handlers.NewUserHandler(repo)
 	server.RegisterHandlers(handler)
 
-	fmt.Printf("before")
 	log.Fatal(server.Start())
-	fmt.Printf("here")
 }

@@ -15,7 +15,7 @@ combination to deploy serverless APIs on AWS.
 Build the lambdas on Localstack and compile the Go endpoints.
 
 ```bash
-make build-localstack
+make deploy-localstack
 ```
 
 Test the endpoints

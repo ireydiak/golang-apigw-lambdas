@@ -3,3 +3,4 @@
 response.json
 *.zip
 **/*/bootstrap
+tmp/*.json

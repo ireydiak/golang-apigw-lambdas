@@ -1,19 +1,14 @@
 package main
 
 import (
-	server "golang-apigw-lambdas/pkg"
 	handlers "golang-apigw-lambdas/pkg/handlers/users"
 	"golang-apigw-lambdas/pkg/repository"
-	"log"
+
+	"github.com/aws/aws-lambda-go/lambda"
 )
 
 func main() {
-	cfg := server.LoadConfig()
-	server := server.NewServer(cfg)
-
 	repo := repository.NewUserRepo()
 	handler := handlers.NewUserHandler(repo)
-	server.RegisterHandlers(handler)
-
-	log.Fatal(server.Start())
+	lambda.Start(handler.HandleRequest)
 }

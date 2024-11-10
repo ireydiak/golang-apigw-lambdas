@@ -14,8 +14,19 @@ combination to deploy serverless APIs on AWS.
 
 Build the lambdas on Localstack and compile the Go endpoints.
 
+If you use localstack for local development, make sure your have a `localstack` entry in your `$HOME/.aws/credentials` file with the following content:
+
 ```bash
-make build-localstack
+[localstack]
+aws_access_key_id=test
+aws_secret_access_key=test
+region=us-east-1
+```
+
+Otherwise you might encounter authentication errors with your regular AWS SSO sessions.
+
+```bash
+AWS_PROFILE=localstack && make deploy-localstack
 ```
 
 Test the endpoints
